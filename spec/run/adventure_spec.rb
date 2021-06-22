@@ -37,7 +37,9 @@ describe 'System in integration' do
     expect(`run/adventure.rb --help`).to eq(
       <<~TEXT
         In order to create your own story, you'll have to check the following points:
-          - Have a .yml story file with anchor scenes (see scenes.yml as an example)
+          - Have a .yml story file. See scenes.yml as an example
+          - The file should have one start anchor tag (#{Models::Scene::START_SCENE_TAG})
+          - The file should have at least one reference to the end tag (#{Models::Scene::END_SCENE_TAG})
           - Specify your custom file path in the options
 
         Usage: run/adventure.rb [options]

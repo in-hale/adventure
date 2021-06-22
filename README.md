@@ -17,8 +17,10 @@ $ bundle
 The application has a ready-to-go boilerplate story `scenes.yml` which is specified as the default
 
 In order to create your own story, you'll have to check the following points:
-* Have a .yml story file with anchor scenes (see scenes.yml as an example)
-* Specify your custom file path in the options 
+* Have a `.yml` story file. See scenes.yml as an example
+* The file should have one start anchor tag (`_start`)
+* The file should have at least one reference to the end tag (`_exit`)
+* Specify your custom file path in the options
 
 ```  
 Usage: run/adventure.rb [options]
