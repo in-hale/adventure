@@ -15,6 +15,5 @@ end
 
 group :test, :development do
   gem 'pry-byebug'
-  gem 'factory_bot', '~> 6.2'
   gem 'rspec', '~> 3.10.0'
 end

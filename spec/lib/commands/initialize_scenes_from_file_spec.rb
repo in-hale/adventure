@@ -86,5 +86,4 @@ describe Commands::InitializeScenesFromFile do
       **attrs
     )
   end
-
 end
