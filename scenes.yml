@@ -1,0 +1,55 @@
+_start:
+  message: Hi %{name}, are you ready for a creepy adventure?
+  actions:
+    - message: Yaaaaaay!!!
+      destination_tag: fork_room
+    - message: Ugh, creepy?)) I think I forgot to feed my cat at home... bye :)
+      destination_tag: run_away
+fork_room:
+  message: You are facing two doors, which one do you choose?
+  actions:
+    - message: Spacehip door on the left
+      destination_tag: fridge
+    - message: Red door saying "Specs passed, you can go through" on the right
+      destination_tag: flakyspecus
+fridge:
+  message: Oh, wait... That's just a fridge 🤦‍
+  actions:
+    - message: Grab a smoothie and pretend that you knew it was a fridge
+      destination_tag: fork_room
+flakyspecus:
+  message: That's me, the Flakyspecus!! I'm sure you didn't expect to see me here!! Nothing can defeat me except one word I'm sure you don't even know!
+  actions:
+    - message: That's 'Rerun'! Easy-peasy 😎
+      destination_tag: flakyspecus_loss
+    - message: Bisect 🤓
+      destination_tag: flakyspecus_win
+flakyspecus_loss:
+  message: Ha-ha that wasn't even ticklish! (Flakyspecus kicked your ass, do you wan't to try again?)
+  actions:
+    - message: Yes, let's try
+      destination_tag: fork_room
+    - message: No :(
+      destination_tag: run_away
+flakyspecus_win:
+  message: You defeated the flakyspecus! He's now very polite and ever green :)
+  actions:
+    - message: Go to the next room
+      destination_tag: lol_encountered
+creepy_encountered:
+  message: A monster called creepy encountered. Beat him?
+  actions:
+    - message: Yes
+      destination_tag: creepy_defeated
+    - message: No, run
+      destination_tag: run_away
+creepy_defeated:
+  message: You managed to defeat Creepy, congrats!
+  actions:
+    - message: Ok
+      destination_tag: _exit
+run_away:
+  message: The adventure will be waiting for you! Be sure to change your diaper and come back ;)
+  actions:
+    - message: Ok
+      destination_tag: _exit
