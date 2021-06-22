@@ -8,7 +8,7 @@ _start:
 fork_room:
   message: You are facing two doors, which one do you choose?
   actions:
-    - message: Spacehip door on the left
+    - message: Spaceship door on the left
       destination_tag: fridge
     - message: Red door saying "Specs passed, you can go through" on the right
       destination_tag: flakyspecus
