@@ -2,9 +2,10 @@
 
 class InteractiveStory
 
-  def initialize(start_scene, io_adapter: Adapters::Console.new)
+  def initialize(start_scene, io_adapter: Adapters::Console.new, scene_decorator: Decorators::Scene)
     @start_scene = start_scene
     @io_adapter = io_adapter
+    @scene_decorator = scene_decorator
   end
 
   def run
@@ -25,7 +26,7 @@ class InteractiveStory
 
   private
 
-  attr_reader :start_scene, :io_adapter
+  attr_reader :start_scene, :io_adapter, :scene_decorator
 
   def select_action(decorated_scene)
     loop do
@@ -37,7 +38,7 @@ class InteractiveStory
   end
 
   def decorate_scene(scene)
-    Decorators::Scene.new(scene)
+    scene_decorator.new(scene)
   end
 
 end
