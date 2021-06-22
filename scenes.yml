@@ -35,7 +35,7 @@ flakyspecus_win:
   message: You defeated the flakyspecus! He's now very polite and ever green :)
   actions:
     - message: Go to the next room
-      destination_tag: lol_encountered
+      destination_tag: creepy_encountered
 creepy_encountered:
   message: A monster called creepy encountered. Beat him?
   actions:
