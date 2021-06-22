@@ -29,34 +29,34 @@ Usage: run/adventure.rb [options]
 
 Run the default story with a custom player name:
 ```shell
-run/adventure.rb -n Laurent
+$ run/adventure.rb -n Laurent
 ```
 
 Run a custom story:
 ```shell
-run/adventure.rb -f custom_story.yml
+$ run/adventure.rb -f custom_story.yml
 ```
 
 ## Specs and testing
 
 In order to run the whole test suit you'll have to execute the following:
 ```shell
-rspec
+$ rspec
 ```
 Add a `-fd` flag to see a meaningful output:
 ```shell
-rspec -fd
+$ rspec -fd
 ```
 Run the linter for the whole project with the following command:
 ```shell
-rubocop
+$ rubocop
 ```
 
 ## Troubleshooting
 
 In case you are having issues with running the executable file, make sure the file has the execution permission configured:
 ```shell
-chmod +x run/adventure.rb
+$ chmod +x run/adventure.rb
 ```
 
 ## Possible improvements
