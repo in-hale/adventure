@@ -8,14 +8,14 @@ module Validators
     end
 
     def valid?
-      has_anchor_scenes? && end_reachable?
+      includes_anchor_scenes? && end_reachable?
     end
 
     private
 
     attr_reader :scenes_hash
 
-    def has_anchor_scenes?
+    def includes_anchor_scenes?
       scenes_hash.key?(Models::Scene::START_SCENE_TAG) &&
         scenes_hash.key?(Models::Scene::END_SCENE_TAG)
     end
@@ -29,9 +29,7 @@ module Validators
         visited[scene.tag] = true
         return true if scene.end?
 
-        scene.actions.each do |action|
-          scenes_queue.push(action.destination) unless visited[action.destination.tag]
-        end
+        scene.actions.each { scenes_queue.push(_1.destination) unless visited[_1.destination.tag] }
       end
 
       false
