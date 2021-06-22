@@ -1,0 +1,7 @@
+second_room:
+  message: Forward or back?
+  actions:
+    - message: Forward
+      destination_tag: _exit
+    - message: Back
+      destination_tag: _exit

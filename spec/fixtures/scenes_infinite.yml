@@ -3,12 +3,10 @@ _start:
   actions:
     - message: Yes!
       destination_tag: second_room
-    - message: No!
-      destination_tag: _exit
 second_room:
-  message: Forward or back?
+  message: Backwards or back?
   actions:
-    - message: Forward
-      destination_tag: _exit
+    - message: Backwards
+      destination_tag: _start
     - message: Back
       destination_tag: _start

@@ -10,5 +10,5 @@ second_room:
   actions:
     - message: Forward
       destination_tag: _exit
-    - message: Back
-      destination_tag: _start
+    - message: Blablabla
+      destination_tag: invalid_reference

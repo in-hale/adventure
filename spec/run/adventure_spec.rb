@@ -4,8 +4,8 @@ require 'open3'
 
 describe 'System in integration' do
   it 'works as expected' do
-    Open3.popen2('./run/adventure.rb -f spec/fixtures/scenes.yml') do |i, o, process|
-      expect_output(o, 'Hi Buddy, are you ready for a creepy adventure?')
+    Open3.popen2('./run/adventure.rb -f spec/fixtures/scenes_extended.yml -n John') do |i, o, process|
+      expect_output(o, 'Hi John, are you ready for a creepy adventure?')
       expect_output(o, '  1. Yaaaaaay!!!')
       expect_output(o, '  2. Ugh, creepy?)) I think I forgot to feed my cat at home... bye :)')
 
