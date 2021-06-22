@@ -24,6 +24,8 @@ flakyspecus:
       destination_tag: flakyspecus_loss
     - message: Bisect 🤓
       destination_tag: flakyspecus_win
+    - message: Please?
+      destination_tag: flakyspecus_loss
 flakyspecus_loss:
   message: Ha-ha that wasn't even ticklish! (Flakyspecus kicked your ass, do you wan't to try again?)
   actions:
@@ -35,16 +37,28 @@ flakyspecus_win:
   message: You defeated the flakyspecus! He's now very polite and ever green :)
   actions:
     - message: Go to the next room
-      destination_tag: creepy_encountered
-creepy_encountered:
-  message: A monster called creepy encountered. Beat him?
+      destination_tag: prodcrusher_encountered
+prodcrusher_encountered:
+  message: You encountered a monster called ProdCrusher, the arch enemy. Try to fight him?
   actions:
-    - message: Yes
-      destination_tag: creepy_defeated
-    - message: No, run
+    - message: Sure!
+      destination_tag: prodcrusher_unveiled
+    - message: No! I'd rather run
       destination_tag: run_away
-creepy_defeated:
-  message: You managed to defeat Creepy, congrats!
+prodcrusher_unveiled:
+  message: He turned out to be just a small hamster powering off the server. Too cute and harmless to fight :)
+  actions:
+    - message: Take him home as a new pet
+      destination_tag: prodcrusher_defeated
+    - message: Leave him alone
+      destination_tag: prodcrusher_loss
+prodcrusher_defeated:
+  message: You have defeated the ProdCrusher, the scaries enemy of the story. Congratulations %{name}!
+  actions:
+    - message: Ok
+      destination_tag: _exit
+prodcrusher_loss:
+  message: Boom!! You left him do his evil job and now there's no power for adventure to function. Good luck next time!
   actions:
     - message: Ok
       destination_tag: _exit
