@@ -9,6 +9,10 @@ module Models
 
     attr_reader :tag, :message, :actions
 
+    def self.end_scene
+      new(tag: END_SCENE_TAG)
+    end
+
     def initialize(tag:, message: nil, actions: [])
       @tag = tag
       @message = message

@@ -3,7 +3,7 @@
 require 'open3'
 
 describe 'System in integration' do
-  it 'works as expected' do
+  it 'works as expected', :aggregate_failures do
     Open3.popen2('./run/adventure.rb -f spec/fixtures/scenes_extended.yml -n John') do |i, o, process|
       expect_output(o, 'Hi John, are you ready for a creepy adventure?')
       expect_output(o, '  1. Yaaaaaay!!!')

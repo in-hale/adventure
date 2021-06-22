@@ -31,7 +31,7 @@ module Commands
       evaluated = raw_scenes.to_h do |tag, scene_attributes|
         [tag, evaluate_scene(scene_attributes.merge(tag: tag))]
       end
-      evaluated[Models::Scene::END_SCENE_TAG] ||= Models::Scene.new(tag: Models::Scene::END_SCENE_TAG)
+      evaluated[Models::Scene::END_SCENE_TAG] ||= Models::Scene.end_scene
       evaluated
     end
 
