@@ -8,7 +8,7 @@ module Commands
         - Have a .yml story file with anchor scenes (see scenes.yml as an example)
         - Specify your custom file path in the options
 
-      Usage: ./run/adventure.rb [options]
+      Usage: run/adventure.rb [options]
     TEXT
 
     def initialize
@@ -21,7 +21,7 @@ module Commands
 
         opts.on('-f PATH', '--file PATH', "Story file path. Default: #{options[:file]}")
         opts.on('-n NAME', '--name NAME', "Player name. Default: #{options[:name]}")
-        opts.on('-h', '--help', 'Prints Help message') do
+        opts.on('-h', '--help', 'Prints help message') do
           puts opts
           exit
         end
