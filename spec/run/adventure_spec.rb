@@ -4,7 +4,7 @@ require 'open3'
 
 describe 'System in integration' do
   it 'works as expected', :aggregate_failures do
-    Open3.popen2('./run/adventure.rb -f spec/fixtures/scenes_extended.yml -n John') do |i, o, process|
+    Open3.popen2('run/adventure.rb -f spec/fixtures/scenes_extended.yml -n John') do |i, o, process|
       expect_output(o, 'Hi John, are you ready for a creepy adventure?')
       expect_output(o, '  1. Yaaaaaay!!!')
       expect_output(o, '  2. Ugh, creepy?)) I think I forgot to feed my cat at home... bye :)')
@@ -31,6 +31,21 @@ describe 'System in integration' do
 
       expect(process).not_to be(:alive)
     end
+  end
+
+  it 'has a --help section' do
+    expect(`run/adventure.rb --help`).to eq(
+      <<~TEXT
+        In order to create your own story, you'll have to check the following points:
+          - Have a .yml story file with anchor scenes (see scenes.yml as an example)
+          - Specify your custom file path in the options
+
+        Usage: run/adventure.rb [options]
+            -f, --file PATH                  Story file path. Default: scenes.yml
+            -n, --name NAME                  Player name. Default: Buddy
+            -h, --help                       Prints help message
+      TEXT
+    )
   end
 
   def expect_output(output, string)
