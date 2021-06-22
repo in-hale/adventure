@@ -5,7 +5,7 @@ require_relative '../config/boot'
 
 options = Commands::ParseCliOptions.new.call
 
-InitializationExceptionHandler.handle do
+Commands::HandleInitializationExceptions.call do
   start_scene = Commands::InitializeScenesFromFile.new(
     options[:file], template_variables: { name: options[:name] }
   ).call
