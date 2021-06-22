@@ -12,7 +12,7 @@ module Adapters
     end
 
     def clear
-      system 'clear'
+      Kernel.system 'clear'
     end
 
   end
