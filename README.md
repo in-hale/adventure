@@ -52,6 +52,13 @@ Run the linter for the whole project with the following command:
 rubocop
 ```
 
+## Troubleshooting
+
+In case you are having issues with running the executable file, make sure the file has the execution permission configured:
+```shell
+chmod +x run/adventure.rb
+```
+
 ## Possible improvements
 
 * `dry-schema`, `dry-validations` for the story source files
