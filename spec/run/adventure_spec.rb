@@ -9,6 +9,10 @@ describe 'System in integration' do
       expect_output(o, '  1. Yaaaaaay!!!')
       expect_output(o, '  2. Ugh, creepy?)) I think I forgot to feed my cat at home... bye :)')
 
+      input(i, '3')
+      expect_output(o, '> 3')
+      expect_output(o, 'Invalid action selected, you better hurry!')
+
       input(i, '1')
       expect_output(o, '> 1')
 
