@@ -22,6 +22,8 @@ module Commands
     attr_reader :file_path, :template_variables, :evaluated_scenes
 
     def parse_file
+      raise Errors::StoryFileNotFound unless File.exist?(file_path)
+
       YAML.safe_load(File.read(file_path), symbolize_names: true, fallback: {})
     end
 

@@ -1,24 +1,19 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'optparse'
 require_relative '../config/boot'
 
-# params = {}
-# OptionParser.new do |opts|
-#   opts.on("-f STR", "--file STR", String)
-#   opts.on("-u", "--unique")
-# end.parse!(into: params)
+options = { file: 'scenes.yml', name: 'Buddy' }
+parser = OptionParser.new do |opts|
+  opts.on('-f STR', '--file STR', String)
+  opts.on('-n NAME', '--name NAME', String)
+end
+parser.parse!(into: options)
 
-io_adapter = Adapters::Console.new
+InitializationExceptionHandler.handle do
+  start_scene = Commands::InitializeScenesFromFile.new(
+    options[:file], template_variables: { name: options[:name] }
+  ).call
 
-begin
-  start_scene = Commands::InitializeScenesFromFile.new('scenes.yml', template_variables: { name: 'Yury' }).call
   InteractiveStory.new(start_scene).run
-rescue Errors::InvalidSceneReference => e
-  io_adapter.println("Story file: Invalid scene referenced. #{e.message}")
-rescue Errors::StoryNotCompletable => _
-  io_adapter.println(
-    'Story file: Story not completable. Make sure it has anchor scenes and the end is reachable'
-  )
 end
