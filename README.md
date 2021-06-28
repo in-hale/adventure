@@ -3,8 +3,6 @@
 Adventure lets you create and run a role-player game with any number of possible story lines and endings!
 
 ![Execution example 1](docs/assets/execution_example_1.png)
-![Execution example 2](docs/assets/execution_example_2.png)
-![Execution example 3](docs/assets/execution_example_3.png)
 
 ## Installation
 
